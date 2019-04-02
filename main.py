@@ -22,7 +22,7 @@ messages = {}
 def runConsumer():
 	consumer = KafkaConsumer(
 		"demo-topic",
-		bootstrap_servers="kafka-3cf79b5a-jani-cb65.aivencloud.com:17545",
+		bootstrap_servers="serveraddr",
 		client_id="demo-client-1",
 		group_id="demo-group",
 		security_protocol="SSL",
@@ -44,7 +44,7 @@ threading.Thread(target=runConsumer).start()
 
 # Initialize producer
 producer = KafkaProducer(
-	bootstrap_servers = "kafka-3cf79b5a-jani-cb65.aivencloud.com:17545",
+	bootstrap_servers = "serveraadr",
 	security_protocol = "SSL",
 	ssl_cafile = "ca.pem",
 	ssl_certfile = "service.cert",
@@ -65,7 +65,7 @@ while(len(messages) < 3):
 		raise Exception("It's taking too long to complete")
 
 # Write the data to the database
-conn = psycopg2.connect(database="defaultdb", user="avnadmin", password="cvyhxd46241pnjc1", host="pg-2562b3d8-jani-cb65.aivencloud.com", port="17543")
+conn = psycopg2.connect(database="defaultdb", user="usr", password="pw", host="host", port="port")
 print('Connected to database')
 cur = conn.cursor()
 cur.execute("CREATE TABLE IF NOT EXISTS Testing(Id INTEGER PRIMARY KEY, Data VARCHAR(100))")
